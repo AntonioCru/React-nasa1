@@ -4,9 +4,7 @@ import DivContainer from "./Components/DivContainer";
 
 function App() {
   return (
-    <div>
       <DivContainer />
-    </div>
   );
 }
 
