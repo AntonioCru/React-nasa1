@@ -1,33 +1,19 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import Header1 from "./Header1";
 import DivArticle from "./DivArticle";
 import useFetch from "../hooks/useFetch";
 
-
-
-const DivContainer = () => {
-  // const functionChangeDate = (dateChange) => {
-  //     console.log(dateChange);
-  //     useFetch("https://api.nasa.gov/planetary/apod?api_key="+process.env.REACT_APP_PRIVATE_KEY+"&date="+dateChange);
-  //     console.log("api iniciado")
-  // }
-
-  
-
+const DivContainer = (data) => {
   const [nasaUrl, setNasaUrl] = useState(
     "https://api.nasa.gov/planetary/apod?api_key=" +
       process.env.REACT_APP_PRIVATE_KEY
   );
 
-  useFetch(nasaUrl);
-  //   var url = "https://api.nasa.gov/planetary/apod";
-  //   var key = "?api_key=gJ0jcjqcaEkO0uNhNGyn64S8d6XaajGiub0M4bmf";
-  //   var dateUrl = "&date=" + dataString;
-  //   var urlWithKey = url + key + dateUrl;
+  
 
   return (
     <>
-      <body background="" className="body" id="bodyId">
+      <div background="" className="body" id="bodyId">{data.url}
         <div className="container">
           <Header1
             functionChange={(newDate) => {
@@ -40,9 +26,9 @@ const DivContainer = () => {
             }}
           />
 
-          <DivArticle />
+          <DivArticle data={useFetch(nasaUrl)} />
         </div>
-      </body>
+      </div>
     </>
   );
 };
